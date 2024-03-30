@@ -1,5 +1,6 @@
 package br.com.alura.adopet.api.service;
 
+import br.com.alura.adopet.api.dto.AtualizacaoTutorDto;
 import br.com.alura.adopet.api.dto.TutorDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.Tutor;
@@ -14,7 +15,7 @@ public class TutorService {
   private TutorRepository tutorRepository;
 
   public void cadastrarTutor(TutorDto dto){
-    boolean tutorJaCadastrado = tutorRepository.existesByTelefoneOrEmail(dto.telefone(), dto.email());
+    boolean tutorJaCadastrado = tutorRepository.existsByTelefoneOrEmail(dto.telefone(), dto.email());
 
     if (tutorJaCadastrado){
       throw new ValidacaoException("Dados já cadastrados para outro tutor!");
@@ -23,7 +24,8 @@ public class TutorService {
     tutorRepository.save(new Tutor(dto));
   }
 
-  public void atualizarTutor(TutorDto dto) {
-    tutorRepository.save(new Tutor(dto));
+  public void atualizarTutor(AtualizacaoTutorDto dto) {
+    var tutor = tutorRepository.getReferenceById(dto.id());
+    tutorRepository.save(tutor);
   }
 }

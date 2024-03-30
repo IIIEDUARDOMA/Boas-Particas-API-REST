@@ -35,6 +35,8 @@ public class Abrigo {
         this.email = dto.email();
     }
 
+    public Abrigo(){}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

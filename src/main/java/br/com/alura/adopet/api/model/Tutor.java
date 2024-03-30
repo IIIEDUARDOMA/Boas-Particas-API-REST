@@ -35,6 +35,8 @@ public class Tutor {
         this.email = dto.email();
     }
 
+    public Tutor(){}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

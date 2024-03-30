@@ -4,5 +4,5 @@ import br.com.alura.adopet.api.model.Tutor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TutorRepository extends JpaRepository<Tutor, Long> {
-  boolean existesByTelefoneOrEmail(String telefone, String email);
+  boolean existsByTelefoneOrEmail(String telefone, String email);
 }

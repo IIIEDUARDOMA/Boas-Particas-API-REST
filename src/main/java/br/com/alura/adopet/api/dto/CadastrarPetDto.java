@@ -4,7 +4,7 @@ import br.com.alura.adopet.api.model.TipoPet;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record CadatrarPetDto(
+public record CadastrarPetDto(
         @NotNull TipoPet tipo,
 
         @NotBlank String nome,

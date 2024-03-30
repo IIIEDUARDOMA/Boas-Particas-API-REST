@@ -1,8 +1,7 @@
 package br.com.alura.adopet.api.model;
 
-import br.com.alura.adopet.api.dto.CadatrarPetDto;
+import br.com.alura.adopet.api.dto.CadastrarPetDto;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
@@ -35,7 +34,7 @@ public class Pet {
     @OneToOne(mappedBy = "pet", fetch = FetchType.LAZY)
     private Adocao adocao;
 
-    public Pet(Abrigo abrigo, CadatrarPetDto dto) {
+    public Pet(Abrigo abrigo, CadastrarPetDto dto) {
         this.abrigo = abrigo;
         this.tipo = dto.tipo();
         this.nome = dto.nome();
@@ -43,7 +42,7 @@ public class Pet {
         this.idade = dto.idade();
         this.cor = dto.cor();
         this.peso = dto.peso();
-
+        this.adotado = false;
     }
 
     public Pet(){}

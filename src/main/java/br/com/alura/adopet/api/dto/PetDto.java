@@ -12,6 +12,7 @@ public record PetDto(
          @NotBlank String raca,
          @NotNull Integer idade,
          @NotBlank String cor
+
         ) {
         public PetDto (Pet pet){
                 this(pet.getId(), pet.getTipo(), pet.getNome(), pet.getRaca(), pet.getIdade(), pet.getCor());
